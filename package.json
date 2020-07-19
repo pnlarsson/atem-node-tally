@@ -1,0 +1,11 @@
+{
+  "name": "tally",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Niklas Larsson",
+  "license": "MIT",
+  "dependencies": {
+    "atem-connection": "^1.3.3",
+    "ws": "^7.3.1"
+  }
+}
