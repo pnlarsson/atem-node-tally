@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Hello!</title>
+    <title>Atem HTML Tally</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,19 +10,23 @@
     <link rel="stylesheet" href="/style.css">
     
     <!-- import the webpage's javascript file -->
+    <script src="/jquery.min.js" defer></script>
     <script src="/script.js" defer></script>
   </head>  
   <body>
-    <h1>Hi there!</h1>
-    
-    <p>
-      I'm your cool new webpage. Made by Flavio <a href="https://flaviocopes.com">flaviocopes.com</a>!
-    </p>
-
-    <!-- include the Glitch button to show what the webpage is about and
-          to make it easier for folks to view source and remix -->
-    <div class="glitchButton" style="position:fixed;top:20px;right:20px;"></div>
-    <script src="https://button.glitch.me/button.js"></script>
+    <div id="stateDiv" style="height: 90vh; width: 100%; background-color: grey">
+    </div>
+    <select onchange="return setCamera();" id="selectCamera">
+      <option value="0" selected>Choose Camera</option>
+      <option value="1">camera 1</option>
+      <option value="2">camera 2</option>
+      <option value="3">camera 3</option>
+      <option value="4">camera 4</option>
+      <option value="5">camera 5</option>
+      <option value="6">camera 6</option>
+      <option value="7">camera 7</option>
+      <option value="8">camera 8</option>
+    </select>
   </body>
 </html>
 
