@@ -59,7 +59,9 @@ myAtem.on('connected', () => {
 		// Note: the state likely hasnt updated yet, but will follow shortly
 		// console.log('Program input set')
 	// })
-	console.log(myAtem.state)
+	console.log(myAtem.state);
+
+	clearInterval(this.sendTestData);
 })
 
 myAtem.on('stateChanged', (state, pathToChange) => {
@@ -93,7 +95,7 @@ myAtem.on('receivedCommand', (command) => {
 	}
 });
 
-function intervalFunc() {
+function sendTestData() {
 	var state = 'program';
 	var source = getRandomInt(1, 4);
 
@@ -114,7 +116,7 @@ function intervalFunc() {
 	});
 }
 
-setInterval(intervalFunc, 1500);
+this.testDataInterval = setInterval(sendTestData, 1500);
 
 function getRandomInt(min, max) {
 	min = Math.ceil(min);
