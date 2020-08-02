@@ -1,7 +1,10 @@
 var camera = null;
 var state = null;
+var noSleep = new NoSleep();
 
 function setCamera(){
+  noSleep.enable(); // keep the screen on!
+
   camera = $('#selectCamera').val();
 
   console.log('Set camera to ' + camera);
