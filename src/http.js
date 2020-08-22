@@ -37,13 +37,15 @@ var server = appHttp.createServer(function (request, response) {
         // If it doesn't
         if (!exists) {
             // Output a red error pointing to failed request
-            console.log(RED + 'FAIL: ' + filename);
+            console.log(RED + 'http - FAIL: ' + WHT + filename);
             // Redirect the browser to the 404 page
-            filename = path.join(process.cwd(), '/404.html');
+	        response.writeHead(404, {'Content-Type': 'text/plain'});
+	        response.end();
+	        return;
         // If the requested URL is a folder, like http://localhost:8000/catpics
         } else if (fs.statSync(filename).isDirectory()) {
             // Output a green line to the console explaining what folder was requested
-            console.log(GRN + 'FLDR: ' + WHT + filename);
+            console.log(GRN + 'http - FLDR: ' + WHT + filename);
             // redirect the user to the index.html in the requested folder
             filename += '/index.html';
         }
@@ -51,7 +53,7 @@ var server = appHttp.createServer(function (request, response) {
         // Assuming the file exists, read it
         fs.readFile(filename, 'binary', function (err, file) {
             // Output a green line to console explaining the file that will be loaded in the browser
-            console.log(GRN + 'FILE: ' + WHT + filename);
+            console.log(GRN + 'http - FILE: ' + WHT + filename);
             // If there was an error trying to read the file
             if (err) {
                 // Put the error in the browser

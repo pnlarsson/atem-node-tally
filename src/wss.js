@@ -1,10 +1,11 @@
 'use strict';
 
+const config = require('./../config');
 const WebSocket = require('ws');
 
-const wss = new WebSocket.Server({ port: 8080 });
+const wss = new WebSocket.Server({ port: config.wssPort });
 
-console.log('WebSocket server running on port 8080');
+console.log(`WebSocket server running on port ${config.wssPort}`);
 
 const interval = setInterval(function ping() {
 	wss.clients.forEach(function each(ws) {

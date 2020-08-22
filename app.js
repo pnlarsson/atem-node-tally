@@ -5,8 +5,8 @@ const wss = require('./src/wss.js')
 const atem = require('./src/atem.js')
 const config = require('./config');
 
-http.listen(config.port, 10, () => {
-    console.log(`http server running on port ${config.port}`);
+http.listen(config.httpPort, 10, () => {
+    console.log(`http server running on port ${config.httpPort}`);
 });
 
 atem.connect(config.atemServer);
