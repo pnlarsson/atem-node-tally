@@ -20,6 +20,20 @@ wss.on('close', function close() {
 	clearInterval(interval);
 });
 
+wss.on('connection', function connection(ws, req) {
+    const ip = req.socket.remoteAddress;
+
+    console.log(`Client connected: ` + ip);
+
+    ws.isAlive = true;
+
+    ws.on('pong', wss.heartbeat);
+
+    ws.on('message', message => {
+        console.log(`Received message => ${message}`)
+    })
+})
+
 wss.noop = function() {}
 
 wss.heartbeat = function() {
